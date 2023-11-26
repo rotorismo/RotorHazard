@@ -2130,8 +2130,10 @@ def on_stage_race(data=None):
         eventPayload = {
             'hide_stage_timer': hide_stage_timer,
             'pi_staging_at_s': RaceContext.race.stage_time_monotonic,
+            'server_staging_epoch_ms': monotonic_to_epoch_millis(RaceContext.race.stage_time_monotonic),
             'staging_tones': staging_tones,
             'pi_starts_at_s': RaceContext.race.start_time_monotonic,
+            'server_start_epoch_ms': monotonic_to_epoch_millis(RaceContext.race.start_time_monotonic),
             'color': ColorVal.ORANGE,
             'heat_id': RaceContext.race.current_heat,
         }
