@@ -300,13 +300,17 @@ class RHUI():
         else:
             self._socket.emit('ui', emit_payload)
 
-    def emit_priority_message(self, message, interrupt=False, caller=False, **params):
+    def emit_priority_message(self, message, interrupt=False, caller=False, admin_only=False, **params):
         ''' Emits message to all clients '''
         if message and re.search(r"[0-z]", message):
             emit_payload = {
                 'message': message,
                 'interrupt': interrupt
             }
+
+            if admin_only:
+                emit_payload['admin_only'] = True
+
             if ('nobroadcast' in params):
                 emit('priority_message', emit_payload)
             else:

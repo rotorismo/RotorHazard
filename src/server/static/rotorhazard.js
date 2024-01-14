@@ -1636,7 +1636,9 @@ jQuery(document).ready(function($){
 
 	// popup messaging
 	socket.on('priority_message', function (msg) {
-		push_message(msg.message, msg.interrupt);
+		if (!msg.admin_only || msg.admin) {
+			push_message(msg.message, msg.interrupt);
+		}
 	});
 
 	socket.on('clear_priority_messages', function () {
