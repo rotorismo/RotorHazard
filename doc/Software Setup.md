@@ -54,10 +54,10 @@ sudo raspi-config
   * "serial port hardware enabled": Yes
 
 
-### 3. Apply Changes to '/boot/config.txt'
+### 3. Apply Changes to '/boot/firmware/config.txt'
 Open a terminal window and enter:
 ```
-sudo nano /boot/config.txt
+sudo nano /boot/firmware/config.txt
 ```
 Add the following lines to the end of the file:
 ```
